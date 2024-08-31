@@ -1,13 +1,76 @@
+@font-face {
+    font-family: 'HakgyoansimNadeuriTTF-B';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimNadeuriTTF-B.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
 .movieCard{
-    width: 500px;
+    width: 350px;
     height: 300px;
     border: white 1px solid;
-    margin-left: 20px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     content: ' ';
+    margin-left: 20px;
+    position: relative;
+    cursor: pointer;
 }
+
+.movieInfo{
+    position: absolute;
+    top: 0;
+    width: 350px;
+    height: 300px;
+    opacity: 0;
+}
+
+.movieInfo > h1{
+    font-family: 'HakgyoansimNadeuriTTF-B', serif ;
+    font-size: 40px;
+    margin-left: 10px;
+}
+
+
+.genres{
+    margin-top: 20px;
+}
+
+.genre{
+    margin-left: 10px;
+}
+
+
+.detailInfo{
+    margin-top: 50px;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.detailIcon{
+    margin-right: 10px;
+}
+
+.movieCard:hover{
+    transition: 0.5s;
+    transform: scale(1) translateZ(20px);
+    border : none;
+}
+
+.movieInfo:hover{
+    opacity: 1;
+    transition: 0.5s;
+    background-color: rgba(43,41,41,0.9);
+    color: white;
+
+}
+
+
+
 
 
 @media (max-width: 576px) {
@@ -21,4 +84,58 @@
         background-size: cover;
         content: ' ';
     }
+
+    .movieCard:hover{
+        transition: 0.5s;
+        transform: scale(1) translateZ(20px);
+        border : none;
+    }
+
+    .movieInfo{
+        position: absolute;
+        top: 0;
+        width: 150px;
+        height: 300px;
+        opacity: 0;
+    }
+
+
+    .movieInfo:hover{
+        opacity: 1;
+        transition: 0.5s;
+        background-color: rgba(43,41,41,0.9);
+        color: white;
+
+    }
+
+
+    .movieInfo > h1{
+        font-family: 'HakgyoansimNadeuriTTF-B', serif ;
+        font-size: 20px;
+        margin-left: 10px;
+    }
+
+
+    .genres{
+        margin-top: 15px;
+    }
+
+    .genre{
+        margin-left: 10px;
+    }
+
+
+    .detailInfo{
+        margin-top: 50px;
+        margin-left: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+
+    .detailIcon{
+        margin-right: 10px;
+    }
+
 }

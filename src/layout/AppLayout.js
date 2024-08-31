@@ -19,7 +19,7 @@ const AppLayout = () => {
                 </div>
                 <ul>
                     <li onClick={() => { navigate('/'); }}>Home</li>
-                    <li onClick={() => { navigate('/movie'); }}>Movies</li>
+                    <li onClick={() => { navigate('/movies'); }}>Movies</li>
                 </ul>
                 <div className={"searchArea"}>
                     <input type={"text"}/>

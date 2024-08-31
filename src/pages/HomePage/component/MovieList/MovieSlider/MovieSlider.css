@@ -1,4 +1,11 @@
-.slider-container{
-    width: 80%;
-    height: 500px;
+.slick-track{
+    width: 500px;
+    height: 300px;
 }
+
+
+
+.slick-list{
+    height: 300px;
+}
+

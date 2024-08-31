@@ -20,9 +20,6 @@
 .slider-containers{
     margin-left: 50px;
     margin-right: 50px;
+    overflow: hidden;
 }
 
-
-@media (max-width: 576px) {
-
-}

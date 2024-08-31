@@ -1,7 +1,7 @@
 import React from 'react'
 import './MovieList.css'
 import MovieSlider from './MovieSlider/MovieSlider'
-import {useGetMovies, usePopularMovies} from "../../../../hooks/getMovies";
+import {useGetMovies} from "../../../../hooks/getMovies";
 const MovieList = ({keyword}) => {
 
     let searchWord = "";
@@ -14,9 +14,8 @@ const MovieList = ({keyword}) => {
         searchWord = "upcoming"
     }
 
-    const {data,isLoading,error,isError} = useGetMovies(searchWord);
+    const {data,isLoading,isError} = useGetMovies(searchWord);
 
-    console.log(data);
 
     if(isLoading){
         <h1>Loading</h1>

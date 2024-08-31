@@ -1,11 +1,14 @@
-import React from 'react'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import MovieCard from "./MovieCard/MovieCard";
+import './MovieSlider.css'
 const MovieSlider = ({data}) => {
+
+
+
     let settings = {
-        dots: true,
+        dots: false,
         infinite: false,
         speed: 500,
         slidesToShow: 4,
@@ -17,8 +20,8 @@ const MovieSlider = ({data}) => {
                 settings: {
                     slidesToShow: 3,
                     slidesToScroll: 3,
-                    infinite: true,
-                    dots: true
+                    infinite: false,
+                    dots: false
                 }
             },
             {
@@ -26,14 +29,19 @@ const MovieSlider = ({data}) => {
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 2,
-                    initialSlide: 2
+                    initialSlide: 2,
+                    infinite: false,
+                    dots: false
+
                 }
             },
             {
-                breakpoint: 480,
+                breakpoint: 380,
                 settings: {
                     slidesToShow: 1,
-                    slidesToScroll: 1
+                    slidesToScroll: 1,
+                    infinite: false,
+                    dots: false
                 }
             }
         ]
