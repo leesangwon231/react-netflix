@@ -1,0 +1,56 @@
+@font-face {
+    font-family: 'HakgyoansimNadeuriTTF-B';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimNadeuriTTF-B.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+.banner{
+    display: flex;
+    width: 100%;
+    height: 70vh;
+    background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/36a4db5b-dec2-458a-a1c0-662fa60e7473/0e19e43e-655e-4150-b74a-e0028dd78b6a/KR-ko-20240820-TRIFECTA-perspective_WEB_ac15e26c-11f9-4a9a-b934-5b7089743290_large.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex-direction: column;
+
+}
+
+.banner::before{
+    content: ' ';
+    background: linear-gradient(to top , black, transparent);
+    position: absolute;
+    left: 0;
+    height: 70vh;
+    width: 100%;
+}
+
+.banner > *{
+    z-index: 0;
+}
+
+.main-text{
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.main-text> h1{
+    color: white;
+    font-family: 'HakgyoansimNadeuriTTF-B', serif;
+    font-size: 80px;
+
+}
+
+@media (max-width: 576px) {
+    .main-text> h1{
+        color: white;
+        font-family: 'HakgyoansimNadeuriTTF-B', serif;
+        font-size: 20px;
+
+    }
+}
