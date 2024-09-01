@@ -46,6 +46,8 @@ const MovieSlider = ({data}) => {
             }
         ]
     };
+
+
     return (
         <div className="slider-container">
             <Slider {...settings}>

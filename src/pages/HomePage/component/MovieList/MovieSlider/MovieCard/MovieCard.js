@@ -4,14 +4,30 @@ import {Badge} from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {faStar,faUser,faFire} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {useMoviesGenres} from "../../../../../../hooks/getGenres";
 
 const MovieCard = ({movie}) => {
+
+    const {data: genreData} =useMoviesGenres();
+    const chgGenre = (movieData) => {
+
+        if(!movieData){
+            return []
+        }
+
+        const genreList = movieData.map((id)=>{
+            return genreData.find((e) => e.id === id).name;
+        })
+
+        return genreList;
+    }
+
     return (
         <div className={"movieCard"} style={{backgroundImage : `url(https://media.themoviedb.org/t/p/w300_and_h450_bestv2${movie.poster_path}+)` }}>
             <div className={"movieInfo"}>
                 <h1>{movie.title}</h1>
                 <div className={"genres"}>
-                    {movie.genre_ids.map((id) => (
+                    {chgGenre(movie.genre_ids).map((id) => (
                         <Badge c bg={"danger"} className={"genre"}>{id}</Badge>
                     ))}
                 </div>
