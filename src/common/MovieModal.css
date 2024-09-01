@@ -1,0 +1,27 @@
+@font-face {
+    font-family: 'HakgyoansimNadeuriTTF-B';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimNadeuriTTF-B.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+.custom-modal-width {
+    max-width: 90%;
+}
+
+
+.movie-header{
+    background: gray;
+    border : 1px solid white ;
+    color : white;
+}
+
+.modal-body{
+    minHeight: 700px ;
+    background: black ;
+    border : 1px solid white;
+    font-family : HakgyoansimNadeuriTTF-B, serif;
+    color: white;
+}
+

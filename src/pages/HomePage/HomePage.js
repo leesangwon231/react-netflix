@@ -1,16 +1,20 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Banner from "./component/Banner/Banner";
 import MovieList from "./component/MovieList/MovieList";
 import './HomePage.css'
+import MovieModal from "../../common/MovieModal";
 
 const HomePage = () => {
+    const [show, setShow] = useState(false);
+    const [detailData , setDetailData] = useState(null);
     return (
         <div className={"homePage"}>
             <Banner/>
+            <MovieModal show = {show} setShow = {setShow}  detailData={detailData}/>
             <div className={"movieLists"}>
-                <MovieList keyword = {"Popular"}/>
-                <MovieList keyword = {"Top Rated"}/>
-                <MovieList keyword = {"Upcoming"}/>
+                <MovieList keyword = {"Popular"} setShow = {setShow} setDetailData = {setDetailData} />
+                <MovieList keyword = {"Top Rated"} setShow = {setShow} setDetailData = {setDetailData} />
+                <MovieList keyword = {"Upcoming"} setShow = {setShow} setDetailData = {setDetailData} />
             </div>
 
         </div>

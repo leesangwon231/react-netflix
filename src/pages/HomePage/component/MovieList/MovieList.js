@@ -2,8 +2,7 @@ import React from 'react'
 import './MovieList.css'
 import MovieSlider from './MovieSlider/MovieSlider'
 import {useGetMovies} from "../../../../hooks/getMovies";
-const MovieList = ({keyword}) => {
-
+const MovieList = ({keyword,setShow,setDetailData}) => {
     let searchWord = "";
 
     if(keyword==="Popular"){
@@ -31,7 +30,7 @@ const MovieList = ({keyword}) => {
         <div className={"movieList"}>
             <h1>{keyword}</h1>
             <div className={"slider-containers"}>
-                <MovieSlider data = {data}/>
+                <MovieSlider data = {data} setShow = {setShow} setDetailData = {setDetailData} />
             </div>
         </div>
     )

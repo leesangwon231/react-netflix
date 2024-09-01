@@ -3,7 +3,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import MovieCard from "./MovieCard/MovieCard";
 import './MovieSlider.css'
-const MovieSlider = ({data}) => {
+const MovieSlider = ({data,setShow,setDetailData}) => {
 
 
 
@@ -52,7 +52,7 @@ const MovieSlider = ({data}) => {
         <div className="slider-container">
             <Slider {...settings}>
                 {data?.map((movie) => (
-                    <MovieCard movie = {movie}/>
+                    <MovieCard movie = {movie} setShow = {setShow} setDetailData = {setDetailData}/>
                 ))}
             </Slider>
         </div>
