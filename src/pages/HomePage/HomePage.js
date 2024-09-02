@@ -6,7 +6,7 @@ import MovieModal from "../../common/MovieModal";
 
 const HomePage = () => {
     const [show, setShow] = useState(false);
-    const [detailData , setDetailData] = useState(null);
+    const [detailData , setDetailData] = useState([]);
     return (
         <div className={"homePage"}>
             <Banner/>

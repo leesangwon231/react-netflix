@@ -23,5 +23,166 @@
     border : 1px solid white;
     font-family : HakgyoansimNadeuriTTF-B, serif;
     color: white;
+    display: flex;
 }
 
+
+
+
+.imageArea{
+    height: 800px;
+    minHeight: 700px ;
+    content: " ";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imageArea img{
+    padding-right: 200px;
+    padding-left: 200px;
+    height: 600px;
+}
+
+
+.detailArea{
+    border-left: white solid 1px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+
+.detailArea h1{
+    margin-top: 20px;
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+
+.genres{
+    margin-bottom: 40px;
+}
+
+
+.detailArea h3{
+    margin-top: 40px;
+    font-size: 40px;
+    border-top: white solid 1px;;
+    border-bottom: white solid 1px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.buttonArea{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    margin-bottom: 40px;
+}
+
+.teaser_btn{
+    background-color: black;
+    width: 400px;
+    height: 50px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border : red solid 1px;
+    cursor: pointer;
+}
+
+.teaser_btn:hover{
+    transition: 1.3s;
+    background-color: red;
+    color: white;
+    border : black solid 1px;
+}
+
+
+
+@media (max-width: 576px) {
+
+    .modal-body{
+        background: black ;
+        border : 1px solid white;
+        font-family : HakgyoansimNadeuriTTF-B, serif;
+        color: white;
+        display: flex;
+        flex-direction: column;
+    }
+
+
+
+
+    .imageArea{
+        minHeight: 100px ;
+        height: 260px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .imageArea img{
+        padding-right: 200px;
+        padding-left: 200px;
+        height: 200px;
+    }
+
+
+    .detailArea{
+        border-left: black solid 1px;;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+
+    .detailArea h1{
+        margin-top: 20px;
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+
+    .genres{
+        margin-bottom: 40px;
+    }
+
+
+    .detailArea h3{
+        margin-top: 40px;
+        font-size: 15px;
+        border-top: white solid 1px;
+        border-bottom: white solid 1px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .buttonArea{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 60px;
+        margin-bottom: 40px;
+    }
+
+    .teaser_btn{
+        background-color: black;
+        width: 400px;
+        height: 50px;
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border : red solid 1px;
+        cursor: pointer;
+    }
+
+    .teaser_btn:hover{
+        transition: 1.3s;
+        background-color: red;
+        color: white;
+        border : black solid 1px;
+    }
+}
