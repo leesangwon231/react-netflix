@@ -1,15 +1,19 @@
 import Modal from 'react-bootstrap/Modal';
-import React from 'react';
+import React, {useState} from 'react';
 import './MovieModal.css'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faFire, faStar, faUser, faCalendar} from "@fortawesome/free-solid-svg-icons";
-import {useMoviesGenres} from "../hooks/getGenres";
+import {useMoviesGenres} from "../../hooks/getGenres";
 import {Badge} from "react-bootstrap";
+import PreviewModal from "../PreviewModal/PreviewModal";
+import {useVideos} from "../../hooks/getVideos";
 
 const MovieModal = ({ show, setShow, detailData }) => {
 
-
+    const [previewShow , setPreviewShow] = useState(false);
     const {data:genreData} =useMoviesGenres();
+    const {data:moviePrviews} = useVideos(detailData.id);
+    let videoKey = "";
 
     const chgGenre = (movieData) => {
         if(movieData === undefined){
@@ -22,12 +26,25 @@ const MovieModal = ({ show, setShow, detailData }) => {
         });
     }
 
+
+
+    if(moviePrviews !== undefined){
+        let findVideos = moviePrviews.filter((preview) => preview.name.includes(detailData.title));
+        if(findVideos.length === 0){
+            videoKey= " "
+        }else{
+            videoKey = findVideos[0].key;
+        }
+    }
+
+
+
     return (
         <>
             <Modal
                 show={show}
                 onHide={()=>setShow(false)}
-                dialogClassName="custom-modal-width"
+                dialogClassName="movie-modal-width"
                 aria-labelledby="example-custom-modal-styling-title"
             >
                 <Modal.Header closeButton className={"movie-header"}>
@@ -55,7 +72,9 @@ const MovieModal = ({ show, setShow, detailData }) => {
                         </div>
                         <h3> {detailData?.overview}</h3>
                         <div className={"buttonArea"}>
-                            <div className={"teaser_btn"}>예고편 보기</div>
+                            <div><PreviewModal previewShow={previewShow} setPreviewShow={setPreviewShow} videoKey = {videoKey}/></div>
+                            {videoKey === " " ? " " :
+                                <div className={"teaser_btn"} onClick={() => setPreviewShow(true)}>예고편 보기</div>}
                         </div>
                     </div>
 

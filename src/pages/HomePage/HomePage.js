@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import Banner from "./component/Banner/Banner";
 import MovieList from "./component/MovieList/MovieList";
 import './HomePage.css'
-import MovieModal from "../../common/MovieModal";
+import MovieModal from "../../common/MovieModal/MovieModal";
 
 const HomePage = () => {
     const [show, setShow] = useState(false);

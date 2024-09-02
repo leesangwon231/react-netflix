@@ -1,0 +1,25 @@
+.youtube-modal{
+    max-width: 80%;
+}
+
+.youtube-modal .modal-content {
+    height: 800px;
+}
+
+.youtube-modal .modal-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.youtube{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media (max-width: 576px) {
+
+
+}
