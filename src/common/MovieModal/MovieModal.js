@@ -1,5 +1,5 @@
 import Modal from 'react-bootstrap/Modal';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './MovieModal.css'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faFire, faStar, faUser, faCalendar} from "@fortawesome/free-solid-svg-icons";
@@ -12,7 +12,7 @@ const MovieModal = ({ show, setShow, detailData }) => {
 
     const [previewShow , setPreviewShow] = useState(false);
     const {data:genreData} =useMoviesGenres();
-    const {data:moviePrviews} = useVideos(detailData.id);
+    const {data: moviePrviews} = useVideos(detailData.id);
     let videoKey = "";
 
     const chgGenre = (movieData) => {
@@ -26,10 +26,9 @@ const MovieModal = ({ show, setShow, detailData }) => {
         });
     }
 
-
-
     if(moviePrviews !== undefined){
         let findVideos = moviePrviews.filter((preview) => preview.name.includes(detailData.title));
+        console.log(moviePrviews)
         if(findVideos.length === 0){
             videoKey= " "
         }else{

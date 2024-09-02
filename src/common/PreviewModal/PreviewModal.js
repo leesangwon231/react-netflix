@@ -6,7 +6,7 @@ import {useVideos} from "../../hooks/getVideos";
 
 const PreviewModal = ({previewShow,setPreviewShow,videoKey}) => {
 
-
+    const [width, setWidth] = useState()
 
     return (
       <>
@@ -18,7 +18,7 @@ const PreviewModal = ({previewShow,setPreviewShow,videoKey}) => {
           >
               <Modal.Header closeButton className={"youtube-header"}>
                   <Modal.Title id="example-custom-modal-styling-title">
-
+                      <p>Current window width: {width}px</p>
                   </Modal.Title>
               </Modal.Header>
               <Modal.Body>
@@ -26,8 +26,8 @@ const PreviewModal = ({previewShow,setPreviewShow,videoKey}) => {
                           className={"youtube"}
                           videoId={videoKey}
                           opts={{
-                              width: "1500",
-                              height: "800",
+                              width:  "1500",
+                              height:  "800",
                               playerVars: {
                                   autoplay: 1, //자동재생 O
                                   rel: 0, //관련 동영상 표시하지 않음 (근데 별로 쓸모 없는듯..)
