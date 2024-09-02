@@ -1,5 +1,5 @@
 import Modal from 'react-bootstrap/Modal';
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import './MovieModal.css'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faFire, faStar, faUser, faCalendar} from "@fortawesome/free-solid-svg-icons";
@@ -53,7 +53,7 @@ const MovieModal = ({ show, setShow, detailData }) => {
                 </Modal.Header>
                 <Modal.Body className={"movie-modal"}>
                     <div className={"imageArea"}>
-                        <img src={`https://media.themoviedb.org/t/p/w300_and_h450_bestv2${detailData?.poster_path}`}/>
+                        <img src={`https://media.themoviedb.org/t/p/w300_and_h450_bestv2${detailData?.poster_path}`} alt={"img"}/>
                     </div>
                     <div className={"detailArea"}>
                         <h1>{detailData?.title}</h1>

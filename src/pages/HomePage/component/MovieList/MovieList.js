@@ -25,7 +25,6 @@ const MovieList = ({keyword,setShow,setDetailData}) => {
     }
 
 
-
     return (
         <div className={"movieList"}>
             <h1>{keyword}</h1>

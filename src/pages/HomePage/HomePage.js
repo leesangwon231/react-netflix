@@ -16,7 +16,7 @@ const HomePage = () => {
                 <MovieList keyword = {"Top Rated"} setShow = {setShow} setDetailData = {setDetailData} />
                 <MovieList keyword = {"Upcoming"} setShow = {setShow} setDetailData = {setDetailData} />
             </div>
-
+            <div className={"footer"}></div>
         </div>
     )
 }

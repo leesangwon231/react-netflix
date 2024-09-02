@@ -1,12 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import Modal from "react-bootstrap/Modal";
 import './PreviewModal.css'
 import YouTube from "react-youtube";
-import {useVideos} from "../../hooks/getVideos";
 
 const PreviewModal = ({previewShow,setPreviewShow,videoKey}) => {
 
-    const [width, setWidth] = useState()
 
     return (
       <>
@@ -18,7 +16,6 @@ const PreviewModal = ({previewShow,setPreviewShow,videoKey}) => {
           >
               <Modal.Header closeButton className={"youtube-header"}>
                   <Modal.Title id="example-custom-modal-styling-title">
-                      <p>Current window width: {width}px</p>
                   </Modal.Title>
               </Modal.Header>
               <Modal.Body>
@@ -27,7 +24,7 @@ const PreviewModal = ({previewShow,setPreviewShow,videoKey}) => {
                           videoId={videoKey}
                           opts={{
                               width:  "1500",
-                              height:  "800",
+                              height:  "850",
                               playerVars: {
                                   autoplay: 1, //자동재생 O
                                   rel: 0, //관련 동영상 표시하지 않음 (근데 별로 쓸모 없는듯..)
