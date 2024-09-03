@@ -50,7 +50,15 @@
     margin-bottom: 20px;
 }
 
-.searchArea input{
+
+
+.searchArea> form  > .searchIcon{
+    margin-left: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.searchArea > form > input{
     width: 200px;
     height: 30px;
     outline: none;
@@ -58,10 +66,14 @@
     font-size: 20px;
 }
 
-.searchArea > .searchIcon{
+.searchArea > form > button{
     margin-left: 20px;
     margin-right: 20px;
-    cursor: pointer;
+    font-family: HakgyoansimNadeuriTTF-B, serif;
+    font-size: 20px;
+    border-radius: 10px;
+    background-color: lightcoral;
+    border: 1px black solid;
 }
 
 @media (max-width: 576px) {

@@ -38,9 +38,10 @@ const MovieSlider = ({data,setShow,setDetailData}) => {
             {
                 breakpoint: 380,
                 settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    infinite: false,
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 0,
+                    infinite: true,
                     dots: false
                 }
             }

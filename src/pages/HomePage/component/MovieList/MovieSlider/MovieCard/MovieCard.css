@@ -74,6 +74,12 @@
 
 
 @media (max-width: 576px) {
+    .movieCard {
+        width: calc(50% - 20px); /* 두 개의 카드가 잘 보이도록 너비 조정 */
+        margin: 10px; /* 카드 간의 간격 조정 */
+    }
+
+
     .movieCard{
         width: 150px;
         height: 300px;

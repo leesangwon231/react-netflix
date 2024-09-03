@@ -9,23 +9,10 @@
     height: 300px;
 }
 
-.slider-container {
-    overflow: hidden;
-}
 
 
 @media (max-width: 576px) {
-    .slick-list{
-        height: 300px;
-        position: relative;
-    }
 
-    .slick-track{
-        width: 500px;
-        height: 300px;
-        position: absolute;
-        top: 0;
-        left: -195px;
-    }
+
 }
 
