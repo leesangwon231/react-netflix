@@ -13,7 +13,7 @@ const MovieCard = ({movie,setShow,setDetailData}) => {
         const chgGenre = (movieData) => {
             return movieData.map((mid) => {
                 const chgGenre = genreData?.find((g) => g.id === mid);
-                return chgGenre ? chgGenre.name : 'etc';
+                return chgGenre ? chgGenre.name : '기타';
             });
         }
 

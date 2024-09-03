@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'HakgyoansimNadeuriTTF-B';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimNadeuriTTF-B.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+.genreToggle {
+    font-family: 'HakgyoansimNadeuriTTF-B', serif;
+    align-items: center;
+    background-color: black;
+    border: red 1px solid;
+    border-radius: 10px;
+    color: #eee;
+    cursor: pointer;
+    display: flex;
+    flex: 1 1 auto;
+    font-size: 16px;
+    height: 40px;
+    justify-content: center;
+    max-width: 120px;
+    min-width: 90px;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+    margin: 5px;
+}

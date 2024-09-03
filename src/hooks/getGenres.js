@@ -3,7 +3,7 @@ import {get} from "axios";
 import api from "../utils/api";
 
 const getGenres = () => {
-    return api('/genre/movie/list?language=en');
+    return api('/genre/movie/list?language=ko');
 }
 
 
