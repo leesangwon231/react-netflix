@@ -24,3 +24,9 @@
     transition: background-color 0.3s ease;
     margin: 5px;
 }
+
+
+@media (max-width: 576px) {
+
+
+}

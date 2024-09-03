@@ -24,3 +24,29 @@
     justify-content: center;
     gap: 20px;
 }
+
+
+@media (max-width: 576px) {
+    .filterArea{
+        margin-left: 10px;
+        margin-right: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 50px;
+    }
+
+    .cardArea{
+        margin-top: 50px;
+        margin-left: 10px;
+        margin-right: 10px;
+        /* display: grid;
+         flex-wrap: wrap;
+         grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+         gap: 10px;*/
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+}

@@ -6,6 +6,7 @@ import {useMoviesGenres} from "../../hooks/getGenres";
 import GenreTogle from "./component/genreTogle/GenreTogle";
 import MoviePageCard from "./component/moviePageCard/MoviePageCard";
 import MovieModal from "../../common/MovieModal/MovieModal";
+import {useGenreMoviesVideos} from "../../hooks/getGenreMovies";
 
 const MoviePage = () => {
 
@@ -15,6 +16,7 @@ const MoviePage = () => {
 
     const {data:searchMovies} = useSearchMovies(keyword.get('sParam'));
     const {data:genres} = useMoviesGenres();
+
 
     return (
         <div className={"wrapper"}>

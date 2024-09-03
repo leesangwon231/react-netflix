@@ -6,7 +6,6 @@ import './MoviePageCard.css'
 
 const moviePageCard = ({movie,setShow,setDetailData,genreData}) => {
 
-    // eslint-disable-next-line react-hooks/rules-of-hooks
 
     const chgGenre = (movieData) => {
         return movieData.map((mid) => {

@@ -6,11 +6,11 @@ const getGenreMovieVideos = (param) => {
     if (!param.queryKey[1]) {
         throw new Error('No movie ID provided');
     }
-    return api(`keyword/{keyword_id}/movies`)
+    return api(`keyword/${param.queryKey[1]}/movies`)
 }
 
 
-export const useGenreVideos = (genreId) => {
+export const useGenreMoviesVideos = (genreId) => {
     return useQuery({
         queryKey : ['movie-genre-video',genreId],
         queryFn : getGenreMovieVideos,
