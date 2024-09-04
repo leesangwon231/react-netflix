@@ -27,7 +27,7 @@ const moviePageCard = ({movie,setShow,setDetailData,genreData}) => {
   return (
       <div className={"moviePageCard"} onClick={() => onClickCard(movie)}
            style={{backgroundImage: `url(https://media.themoviedb.org/t/p/w300_and_h450_bestv2${movie.poster_path}+)`}}>
-          <div className={"movieInfo"}>
+          <div className={"moviePageCardInfo"}>
               <h1>{movie.title}</h1>
               <div className={"genres"}>
                   {chgGenre(movie?.genre_ids)?.map((genreNm, index) => (
@@ -35,10 +35,10 @@ const moviePageCard = ({movie,setShow,setDetailData,genreData}) => {
                   ))}
               </div>
 
-              <div className={"detailInfo"}>
-                  <div><FontAwesomeIcon icon={faUser} className={"detailIcon"}/>{movie?.vote_average}</div>
-                  <div><FontAwesomeIcon icon={faStar} className={"detailIcon"}/>{movie?.popularity}</div>
-                  <div><FontAwesomeIcon icon={faFire} className={"detailIcon"}/>{movie?.adult ? 'over 18' : 'under 18'}
+              <div className={"moviePageCardDetailInfo"}>
+                  <div><FontAwesomeIcon icon={faUser} className={"moviePageCardDetailIcon"}/>{movie?.vote_average}</div>
+                  <div><FontAwesomeIcon icon={faStar} className={"moviePageCardDetailIcon"}/>{movie?.popularity}</div>
+                  <div><FontAwesomeIcon icon={faFire} className={"moviePageCardDetailIcon"}/>{movie?.adult ? 'over 18' : 'under 18'}
                   </div>
               </div>
 

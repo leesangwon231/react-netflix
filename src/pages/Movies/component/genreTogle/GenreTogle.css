@@ -25,6 +25,25 @@
     margin: 5px;
 }
 
+.activeToggle{
+    font-family: 'HakgyoansimNadeuriTTF-B', serif;
+    align-items: center;
+    background-color: red;
+    border: red 1px solid;
+    border-radius: 10px;
+    color: black;
+    cursor: pointer;
+    display: flex;
+    flex: 1 1 auto;
+    font-size: 16px;
+    height: 40px;
+    justify-content: center;
+    max-width: 110px;
+    min-width: 80px;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+    margin: 5px;
+}
 
 @media (max-width: 576px) {
 

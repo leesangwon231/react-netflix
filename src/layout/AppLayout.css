@@ -25,6 +25,7 @@
 
 .logo{
     display: flex;
+    cursor: pointer;
 }
 
 .navBarContainer img{
@@ -40,6 +41,7 @@
     list-style-type: none;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .searchArea {

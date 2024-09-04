@@ -12,7 +12,9 @@ const MoviePage = () => {
     
     //장르 검색 키워드 검색
     const [keyword] = useSearchParams();
-    
+    const [active , setActive] = useState("");
+
+
     // 무피 상세 모달창
     const [show, setShow] = useState(false);
     const [detailData , setDetailData] = useState([]);
@@ -28,7 +30,7 @@ const MoviePage = () => {
             <MovieModal show = {show} setShow = {setShow}  detailData={detailData}/>
             <div className={"filterArea"}>
                 {genres?.map((genre) => (
-                    <GenreTogle genre = {genre}/>
+                    <GenreTogle genre = {genre} active={active} setActive={setActive}/>
                 ))}
             </div>
             <div className={"cardArea"}>
