@@ -28,7 +28,6 @@ const MovieModal = ({ show, setShow, detailData }) => {
 
     if(moviePrviews !== undefined){
         let findVideos = moviePrviews.filter((preview) => preview.name.includes(detailData.title));
-        console.log(moviePrviews)
         if(findVideos.length === 0){
             videoKey= " "
         }else{
