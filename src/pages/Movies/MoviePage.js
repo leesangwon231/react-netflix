@@ -22,7 +22,6 @@ const MoviePage = () => {
     const [detailData , setDetailData] = useState([]);
 
 
-
     //페이징용
     const [page,setPage] = useState(1);
 
@@ -40,6 +39,12 @@ const MoviePage = () => {
         setPage(1)
         setActive("")
     }, [keyword]);
+    
+    
+    //페이지 변화시 필터 초기화
+    useEffect(() => {
+        setActive("")
+    }, [page]);
 
     
 

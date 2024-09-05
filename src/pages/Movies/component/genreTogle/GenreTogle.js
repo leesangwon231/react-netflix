@@ -8,7 +8,6 @@ const GenreTogle = ({genre,active,setActive,data,setSearchMovies}) => {
         e.preventDefault();
         if(active.name === genre.name){
             setActive("");
-            console.log("here");
             setSearchMovies(data);
         }else{
             let filteredMovies = data?.results.reduce(function(acc,cur){
