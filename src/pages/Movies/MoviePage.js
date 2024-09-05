@@ -30,7 +30,7 @@ const MoviePage = () => {
         setPage(1)
     }, [keyword]);
 
-
+    console.log(searchMovies)
     return (
         <div className={"wrapper"}>
             <MovieModal show = {show} setShow = {setShow}  detailData={detailData}/>
