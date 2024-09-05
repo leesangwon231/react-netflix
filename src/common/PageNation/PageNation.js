@@ -1,9 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import ReactPaginate from 'react-paginate';
 import "./PageNation.css"
 
 const PageNation = ({data,setPage,page}) => {
-
     const onChagePages = ({selected}) => {
         setPage(selected+1)
     }
