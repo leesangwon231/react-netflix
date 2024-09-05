@@ -25,8 +25,21 @@ const MoviePage = () => {
     //페이징용
     const [page,setPage] = useState(1);
 
+    //정렬용
+    const [sortFlag, setSortFlag] = useState(false);
+
     const {data} = useSearchMovies(keyword.get('sParam') === null ? "" :keyword.get('sParam') ,page);
     const {data:genres} = useMoviesGenres();
+
+
+    const sortMoviesByPopularity = (movies) => {
+        let sortedMovies =  movies.sort((a, b) => b.vote_count - a.vote_count);
+        let originData = searchMovies;
+        originData.results = sortedMovies;
+        setSearchMovies(originData);
+        console.log(originData);
+
+    };
 
 
     //데이터 세팅
@@ -46,6 +59,7 @@ const MoviePage = () => {
         setActive("")
     }, [page]);
 
+
     
 
     return (
@@ -56,6 +70,7 @@ const MoviePage = () => {
                     <GenreTogle genre = {genre} active={active} setActive={setActive} data={data} setSearchMovies={setSearchMovies}/>
                 ))}
             </div>
+            <div className={"sortArea"} onClick={() => sortMoviesByPopularity(searchMovies.results)}>Sorting</div>
             <div className={"cardArea"}>
                 {searchMovies?.results.length === 0
                     ? <div className={"notFound"}><h1>검색 된 결과가 없습니다</h1></div>

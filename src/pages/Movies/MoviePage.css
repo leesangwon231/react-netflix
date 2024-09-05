@@ -40,6 +40,14 @@
     color: white;
 }
 
+.sortArea{
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
 @media (max-width: 576px) {
     .filterArea{
         margin-left: 10px;
