@@ -16,11 +16,15 @@ const MovieModal = ({ show, setShow, detailData }) => {
     const {data: moviePrviews} = useVideos(detailData.id);
     const {data: reviewData} = useReviewhMovies(detailData.id)
     let videoKey = "";
+
     let reviews = reviewData?.reduce(function (acc, cur) {
         acc.push(cur.content);
         return acc;
-    }, []);;
+    }, []);
 
+    if(reviews?.length === 0){
+        reviews.push("해당 게시물은 리뷰가 없습니다.")
+    }
 
 
     const chgGenre = (movieData) => {
