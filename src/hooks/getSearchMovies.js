@@ -3,16 +3,18 @@ import api from "../utils/api";
 
 
     const getSearchMovies = (param) => {
-        return api(`/search/movie?query=${param.queryKey[1]}`)
+        return param.queryKey[1].keyword === ""
+             ? api.get(`/movie/popular?page=${param.queryKey[1].page}`)
+             : api.get(`/search/movie?query=${param.queryKey[1].keyword}&page=${param.queryKey[1].page}`)
     }
 
 
-export const useSearchMovies = (keyword) => {
+export const useSearchMovies = (keyword,page) => {
     return useQuery({
-        queryKey : ['search-movies',keyword],
+        queryKey : ['search-movies',{keyword,page}],
         queryFn :getSearchMovies,
         select : (data) => {
-            return data.data.results
+            return data.data
         }
     })
 }

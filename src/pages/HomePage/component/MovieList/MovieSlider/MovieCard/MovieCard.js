@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {faStar,faUser,faFire} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {useMoviesGenres} from "../../../../../../hooks/getGenres";
+import MovieCollapse from "../../../../../../common/MovieCollaspe/MovieCollapse";
 
 const MovieCard = ({movie,setShow,setDetailData}) => {
 
@@ -34,7 +35,6 @@ const MovieCard = ({movie,setShow,setDetailData}) => {
                         <Badge key={index} bg="danger" className={"genre"}>{genreNm}</Badge>
                     ))}
                 </div>
-
                 <div className={"detailInfo"}>
                     <div><FontAwesomeIcon icon={faUser} className={"detailIcon"}/>{movie?.vote_average}</div>
                     <div><FontAwesomeIcon icon={faStar} className={"detailIcon"}/>{movie?.popularity}</div>

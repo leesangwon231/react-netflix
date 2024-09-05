@@ -10,6 +10,7 @@ const GenreTogle = ({genre,active,setActive}) => {
         e.preventDefault();
         navigate(`?sParam=${e.target.id}`)
         setActive(e.target.innerText);
+
     }
   return (
 

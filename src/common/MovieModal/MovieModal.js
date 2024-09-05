@@ -7,13 +7,21 @@ import {useMoviesGenres} from "../../hooks/getGenres";
 import {Badge} from "react-bootstrap";
 import PreviewModal from "../PreviewModal/PreviewModal";
 import {useVideos} from "../../hooks/getVideos";
-
+import MovieCollapse from "../MovieCollaspe/MovieCollapse";
+import {useReviewhMovies} from "../../hooks/getReviewMovies";
 const MovieModal = ({ show, setShow, detailData }) => {
 
     const [previewShow , setPreviewShow] = useState(false);
     const {data:genreData} =useMoviesGenres();
     const {data: moviePrviews} = useVideos(detailData.id);
+    const {data: reviewData} = useReviewhMovies(detailData.id)
     let videoKey = "";
+    let reviews = reviewData?.reduce(function (acc, cur) {
+        acc.push(cur.content);
+        return acc;
+    }, []);;
+
+
 
     const chgGenre = (movieData) => {
         if(movieData === undefined){
@@ -68,7 +76,8 @@ const MovieModal = ({ show, setShow, detailData }) => {
                         <div><FontAwesomeIcon icon={faFire}
                                               className={"detailIcon"}/>{detailData?.adult ? 'over 18' : 'under 18'}
                         </div>
-                        <h3> {detailData?.overview}</h3>
+                        <MovieCollapse title={"줄거리"} content={[detailData?.overview]}/>
+                        <MovieCollapse title={"리뷰"} content={reviews}/>
                         <div className={"buttonArea"}>
                             <div><PreviewModal previewShow={previewShow} setPreviewShow={setPreviewShow} videoKey = {videoKey}/></div>
                             {videoKey === " " ? " " :

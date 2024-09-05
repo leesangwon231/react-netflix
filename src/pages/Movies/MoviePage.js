@@ -19,11 +19,17 @@ const MoviePage = () => {
     const [show, setShow] = useState(false);
     const [detailData , setDetailData] = useState([]);
 
-    const {data:searchMovies} = useSearchMovies(keyword.get('sParam'));
-    const {data:genres} = useMoviesGenres();
+
 
     //페이징용
-    const [moviesData,setMoviesData] = useState([]);
+    const [page,setPage] = useState(1);
+    const {data:searchMovies} = useSearchMovies(keyword.get('sParam') === null ? "" :keyword.get('sParam') ,page);
+    const {data:genres} = useMoviesGenres();
+
+    useEffect(() => {
+        setPage(1)
+    }, [keyword]);
+
 
     return (
         <div className={"wrapper"}>
@@ -34,11 +40,13 @@ const MoviePage = () => {
                 ))}
             </div>
             <div className={"cardArea"}>
-                {moviesData?.map((movie) => (
-                    <MoviePageCard movie={movie} setShow={setShow} setDetailData={setDetailData} genreData = {genres}/>
+                {searchMovies?.results.length === 0
+                    ? <div className={"notFound"}><h1>검색 된 결과가 없습니다</h1></div>
+                    : searchMovies?.results.map((movie) => (
+                    <MoviePageCard key={movie.id} movie={movie} setShow={setShow} setDetailData={setDetailData} genreData={genres}/>
                 ))}
             </div>
-            <PageNation data = {searchMovies} setMoviesData={setMoviesData} pageNum={14} keyword={keyword}/>
+            <PageNation data = {searchMovies} setPage ={setPage} page={page} keword={keyword}/>
         </div>
 
     )

@@ -1,47 +1,39 @@
 import React, {useEffect, useState} from 'react';
-import Pagination from "react-bootstrap/Pagination";
+import ReactPaginate from 'react-paginate';
 import "./PageNation.css"
-const PageNation = ({data, pageNum, setMoviesData}) => {
 
-    const [active, setActive] = useState(1);
+const PageNation = ({data,setPage,page}) => {
 
-
-    useEffect(() => {
-        const splitArrayIntoChunks = (array, chunkSize) => {
-            let result = [];
-            for (let i = 0; i < array?.length; i += chunkSize) {
-                let chunk = array.slice(i, i + chunkSize);
-                result.push(chunk);
-            }
-            return result;
-        };
-
-        const pagingData = splitArrayIntoChunks(data, pageNum);
-
-        if (pagingData.length > 0) {
-            setMoviesData(pagingData[active - 1]);
-        }
-    }, [active, data, pageNum]); // keyword 제거
-
-
-    let items = [];
-    const clickPage = (number) => {
-        setActive(number)
+    const onChagePages = ({selected}) => {
+        setPage(selected+1)
     }
 
-    for (let number = 1; number <= (data?.length/pageNum)+1; number++) {
-        items.push(
-            <Pagination.Item key={number} active={number === active} onClick={() => clickPage(number)}>
-                {number}
-            </Pagination.Item>,
-        );
-    }
+    return (
+        <div className={"pageArea"}>
+            <ReactPaginate
+                breakLabel="..."
+                nextLabel="next >"
+                onPageChange={onChagePages}
+                pageRangeDisplayed={2}
+                pageCount={data?.total_pages}
+                previousLabel="< previous"
+                renderOnZeroPageCount={null}
+                forcePage={page - 1}
+                containerClassName={"pagination"}
+                pageClassName={"page-item"}
+                pageLinkClassName={"page-link"}
+                previousClassName={"page-item"}
+                previousLinkClassName={"page-link"}
+                nextClassName={"page-item"}
+                nextLinkClassName={"page-link"}
+                breakClassName={"page-item"}
+                breakLinkClassName={"page-link"}
+                activeClassName={"active"}
+                disabledClassName={"disabled"}
+            />
+        </div>
 
-  return (
-    <div className={"pageArea"}>
-        <Pagination>{items}</Pagination>
-    </div>
-  );
+    );
 }
 
 export default PageNation;
