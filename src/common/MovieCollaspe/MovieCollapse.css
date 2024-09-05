@@ -84,6 +84,18 @@
     border : white 1px solid;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
 @media (max-width: 576px) {
     .movieCollapse{
         display: flex;
@@ -140,7 +152,7 @@
     .collapse-contentArea > .collapse-content{
         padding: 10px;
         width: 200px;
-        height: 89px;
+        max-height: 85px;
         display: -webkit-box;
         -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
@@ -149,17 +161,22 @@
         word-wrap: break-word;
     }
 
+
     .collapse-contentArea:hover{
-        transform: scale(1.1);
+        transform: scale(1);
         cursor: pointer;
     }
 
     .collapse-all-content{
         padding: 7px;
         width: 200px;
-        height: auto;
-        transform: scale(1)
+        max-height: 3000px;
+        overflow: hidden;
+        transition: all .2s ease-in-out;
+
     }
+
+
 
     /*토글 버튼 클릭시 내용 쪽*/
 
