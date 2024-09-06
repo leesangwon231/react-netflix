@@ -8,7 +8,6 @@ import MoviePageCard from "./component/moviePageCard/MoviePageCard";
 import MovieModal from "../../common/MovieModal/MovieModal";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PageNation from "../../common/PageNation/PageNation";
-import {MDBCheckbox} from "mdb-react-ui-kit";
 import {ToggleButton} from "react-bootstrap";
 import ReLatedMovies from "../ReLatedMovies/ReLatedMovies";
 const MoviePage = () => {
