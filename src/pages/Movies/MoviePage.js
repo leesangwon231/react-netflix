@@ -12,7 +12,7 @@ import {ToggleButton} from "react-bootstrap";
 import ReLatedMovies from "../ReLatedMovies/ReLatedMovies";
 const MoviePage = () => {
 
-    const[searchMovies,setSearchMovies]=useState(null);
+    const[searchMovies,setSearchMovies]=useState({ results: [] });
 
     //장르 검색 키워드 검색
     const [keyword] = useSearchParams();
@@ -68,13 +68,12 @@ const MoviePage = () => {
         setActive("")
         setChecked(false)
     }, [page]);
-    
+
     //필터 유지시 장르 변경시
     useEffect(() => {
-        if(searchMovies === null){
-            setSearchMovies(data);
-        }else{
+
             let originData = searchMovies?.results;
+
             if(active !== ""){
                 let filteredMovies = originData.reduce(function(acc,cur){
                     if (cur.genre_ids.includes(active.id)) {
@@ -88,18 +87,21 @@ const MoviePage = () => {
             }
 
             if(checked){
-                originData = originData.sort((a, b) => b.vote_count - a.vote_count);
+                originData = originData?.sort((a, b) => b.vote_count - a.vote_count);
             }else{
-                originData = originData.sort((a, b) => b.popularity - a.popularity);
+                originData = originData?.sort((a, b) => b.popularity - a.popularity);
 
             }
+
 
             setSearchMovies(prevState => ({
                 ...prevState,
                 results: originData
             }));
-        }
-        }, [checked,active,data]);
+
+        }, [checked,active]);
+
+    console.log(searchMovies)
 
     return (
         <div className={"wrapper"}>
