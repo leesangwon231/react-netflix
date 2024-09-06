@@ -12,7 +12,7 @@ import {ToggleButton} from "react-bootstrap";
 import ReLatedMovies from "../ReLatedMovies/ReLatedMovies";
 const MoviePage = () => {
 
-    const[searchMovies,setSearchMovies]=useState();
+    const[searchMovies,setSearchMovies]=useState(null);
 
     //장르 검색 키워드 검색
     const [keyword] = useSearchParams();
@@ -35,8 +35,8 @@ const MoviePage = () => {
     const {data:genres} = useMoviesGenres();
 
 
-    const sortMoviesByPopularity = (movies,e) => {
-        setChecked(e.currentTarget.checked)
+    const sortMoviesByPopularity = (movies) => {
+        setChecked(!checked)
         if(checked){
             setSearchMovies(data);
         }else{
@@ -49,26 +49,59 @@ const MoviePage = () => {
     };
 
 
+
+
     //데이터 세팅
     useEffect(() => {
         setSearchMovies(data);
     }, [data]);
-    
+
     //검색할때 초기화
     useEffect(() => {
         setPage(1)
         setActive("")
     }, [keyword]);
-    
-    
+
+
     //페이지 변화시 필터 초기화
     useEffect(() => {
         setActive("")
         setChecked(false)
     }, [page]);
-
-    console.log(data)
     
+    //필터 유지시 장르 변경시
+    useEffect(() => {
+        if(searchMovies === null){
+            setSearchMovies(data);
+        }else{
+            let originData = searchMovies?.results;
+            if(active !== ""){
+                let filteredMovies = originData.reduce(function(acc,cur){
+                    if (cur.genre_ids.includes(active.id)) {
+                        acc.push(cur);
+                    }
+                    return acc;
+                },[])
+
+                originData = filteredMovies
+
+            }
+
+            if(checked){
+                originData = originData.sort((a, b) => b.vote_count - a.vote_count);
+            }else{
+                originData = originData.sort((a, b) => b.popularity - a.popularity);
+
+            }
+
+            setSearchMovies(prevState => ({
+                ...prevState,
+                results: originData
+            }));
+        }
+
+
+        }, [checked,active,data]);
 
     return (
         <div className={"wrapper"}>
@@ -87,7 +120,7 @@ const MoviePage = () => {
                     variant="outline-danger"
                     checked={checked}
                     value="1"
-                    onChange={(e) => sortMoviesByPopularity(searchMovies?.results,e)}
+                    onChange={(e) => sortMoviesByPopularity(searchMovies?.results)}
                 >
                     시청자순
                 </ToggleButton>
@@ -96,8 +129,8 @@ const MoviePage = () => {
                 {searchMovies?.results.length === 0 || data === undefined
                     ? <div className={"notFound"}><ReLatedMovies/></div>
                     : searchMovies?.results.map((movie) => (
-                    <MoviePageCard key={movie.id} movie={movie} setShow={setShow} setDetailData={setDetailData} genreData={genres}/>
-                ))}
+                        <MoviePageCard key={movie.id} movie={movie} setShow={setShow} setDetailData={setDetailData} genreData={genres}/>
+                    ))}
             </div>
             <div className={"pageArea"}>
                 {searchMovies?.results.length === 0 || data === undefined ? "" : <PageNation data={data} setPage ={setPage} page={page} keword={keyword}/>}

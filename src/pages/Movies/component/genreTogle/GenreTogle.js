@@ -3,6 +3,9 @@ import "./GenreTogle.css"
 
 
 const GenreTogle = ({genre,active,setActive,data,setSearchMovies}) => {
+
+
+
     const onClickGenre = (e) => {
         e.preventDefault();
         if(active.name === genre.name){
