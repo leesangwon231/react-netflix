@@ -8,6 +8,8 @@ import MoviePageCard from "./component/moviePageCard/MoviePageCard";
 import MovieModal from "../../common/MovieModal/MovieModal";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PageNation from "../../common/PageNation/PageNation";
+import {MDBCheckbox} from "mdb-react-ui-kit";
+import {ToggleButton} from "react-bootstrap";
 const MoviePage = () => {
 
     const[searchMovies,setSearchMovies]=useState();
@@ -26,19 +28,24 @@ const MoviePage = () => {
     const [page,setPage] = useState(1);
 
     //정렬용
-    const [sortFlag, setSortFlag] = useState(false);
+    const [checked, setChecked] = useState(false);
+
 
     const {data} = useSearchMovies(keyword.get('sParam') === null ? "" :keyword.get('sParam') ,page);
     const {data:genres} = useMoviesGenres();
 
 
-    const sortMoviesByPopularity = (movies) => {
-        let sortedMovies =  movies.sort((a, b) => b.vote_count - a.vote_count);
-        let originData = searchMovies;
-        originData.results = sortedMovies;
-        setSearchMovies(originData);
-        console.log(originData);
-
+    const sortMoviesByPopularity = (movies,e) => {
+        setChecked(e.currentTarget.checked)
+        if(checked){
+            setSearchMovies(data);
+        }else{
+            const sortedMovies = [...movies].sort((a, b) => b.vote_count - a.vote_count);
+            setSearchMovies(prev => ({
+                ...prev,
+                results: sortedMovies
+            }));
+        }
     };
 
 
@@ -57,6 +64,7 @@ const MoviePage = () => {
     //페이지 변화시 필터 초기화
     useEffect(() => {
         setActive("")
+        setChecked(false)
     }, [page]);
 
 
@@ -70,7 +78,19 @@ const MoviePage = () => {
                     <GenreTogle genre = {genre} active={active} setActive={setActive} data={data} setSearchMovies={setSearchMovies}/>
                 ))}
             </div>
-            <div className={"sortArea"} onClick={() => sortMoviesByPopularity(searchMovies.results)}>Sorting</div>
+            <div className={"sortArea"}>
+                <ToggleButton
+                    id="toggle-check"
+                    type="checkbox"
+                    className="custom-toggle-btn"
+                    variant="outline-danger"
+                    checked={checked}
+                    value="1"
+                    onChange={(e) => sortMoviesByPopularity(searchMovies?.results,e)}
+                >
+                    시청자순
+                </ToggleButton>
+            </div>
             <div className={"cardArea"}>
                 {searchMovies?.results.length === 0
                     ? <div className={"notFound"}><h1>검색 된 결과가 없습니다</h1></div>

@@ -41,12 +41,25 @@
 }
 
 .sortArea{
+    margin-left: 200px;
+    margin-right: 240px;
     color: white;
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
     cursor: pointer;
 }
+
+
+
+
+.custom-toggle-btn{
+    font-family: 'HakgyoansimNadeuriTTF-B', serif ;
+    border: 1px solid red;
+    color: white;
+}
+
+
 
 @media (max-width: 576px) {
     .filterArea{
@@ -82,6 +95,24 @@
         text-align: center;
         font-family: 'HakgyoansimNadeuriTTF-B', serif;
         color: white;
+    }
+
+
+    .sortArea{
+        margin-left: 10px;
+        margin-right: 50px;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+    }
+
+    .btn-outline-danger{
+        width: 70px;
+        height: 30px;
+        display: flex;
+        font-size: 10px;
+        justify-content: center;
+        align-items: center;
     }
 
 }
