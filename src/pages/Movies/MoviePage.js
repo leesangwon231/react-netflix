@@ -99,19 +99,16 @@ const MoviePage = () => {
                 results: originData
             }));
         }
-
-
         }, [checked,active,data]);
 
     return (
         <div className={"wrapper"}>
             <MovieModal show = {show} setShow = {setShow}  detailData={detailData}/>
-            {searchMovies?.results.length === 0 || data === undefined ? "" : <div className={"filterArea"}>
+           <div className={"filterArea"}>
                 {genres?.map((genre) => (
                     <GenreTogle genre = {genre} active={active} setActive={setActive} data={data} setSearchMovies={setSearchMovies}/>
                 ))}
             </div>
-            }
             {searchMovies?.results.length === 0 || data === undefined ? "" :<div className={"sortArea"}>
                 <ToggleButton
                     id="toggle-check"
