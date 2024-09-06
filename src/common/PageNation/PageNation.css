@@ -48,7 +48,7 @@
 }
 
 .pagination .disabled a:hover {
-    background-color: transparent;
+    background-color: black;
 }
 
 

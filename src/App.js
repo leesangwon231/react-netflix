@@ -1,10 +1,9 @@
 import './App.css';
-import {usePopularMovies} from "./hooks/getMovies";
 import {Route, Routes} from "react-router";
 import AppLayout from "./layout/AppLayout";
 import HomePage from "./pages/HomePage/HomePage";
 import MoviePage from "./pages/Movies/MoviePage";
-import MovieDetail from "./pages/MovieDetail/MovieDetail";
+import ReLatedMovies from "./pages/ReLatedMovies/ReLatedMovies";
 import NotFound from "./pages/NotFound/NotFound";
 
 function App() {
@@ -19,7 +18,7 @@ function App() {
                     <Route index element={<HomePage/>}/>
                     <Route path="/movies">
                         <Route index element={<MoviePage/>}/>
-                        <Route path={":id"} element={<MovieDetail/>}/>
+                        <Route path={":id"} element={<ReLatedMovies/>}/>
                     </Route>
                 </Route>
                 <Route path="*" element={<NotFound/>}></Route>

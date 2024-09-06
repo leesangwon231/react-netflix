@@ -10,6 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import PageNation from "../../common/PageNation/PageNation";
 import {MDBCheckbox} from "mdb-react-ui-kit";
 import {ToggleButton} from "react-bootstrap";
+import ReLatedMovies from "../ReLatedMovies/ReLatedMovies";
 const MoviePage = () => {
 
     const[searchMovies,setSearchMovies]=useState();
@@ -73,12 +74,13 @@ const MoviePage = () => {
     return (
         <div className={"wrapper"}>
             <MovieModal show = {show} setShow = {setShow}  detailData={detailData}/>
-            <div className={"filterArea"}>
+            {searchMovies?.results.length === 0 ? "" : <div className={"filterArea"}>
                 {genres?.map((genre) => (
                     <GenreTogle genre = {genre} active={active} setActive={setActive} data={data} setSearchMovies={setSearchMovies}/>
                 ))}
             </div>
-            <div className={"sortArea"}>
+            }
+            {searchMovies?.results.length === 0 ? "" :<div className={"sortArea"}>
                 <ToggleButton
                     id="toggle-check"
                     type="checkbox"
@@ -90,15 +92,15 @@ const MoviePage = () => {
                 >
                     시청자순
                 </ToggleButton>
-            </div>
+            </div>}
             <div className={"cardArea"}>
                 {searchMovies?.results.length === 0
-                    ? <div className={"notFound"}><h1>검색 된 결과가 없습니다</h1></div>
+                    ? <div className={"notFound"}><ReLatedMovies/></div>
                     : searchMovies?.results.map((movie) => (
                     <MoviePageCard key={movie.id} movie={movie} setShow={setShow} setDetailData={setDetailData} genreData={genres}/>
                 ))}
             </div>
-            <PageNation data={data} setPage ={setPage} page={page} keword={keyword}/>
+            {searchMovies?.results.length === 0 ? "" : <PageNation data={data} setPage ={setPage} page={page} keword={keyword}/>}
         </div>
 
     )

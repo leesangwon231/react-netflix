@@ -13,6 +13,7 @@ export const useReviewhMovies = (movieId) => {
         queryFn :getReviewMovies,
         select : (data) => {
             return data.data.results
-        }
+        },
+        enabled : movieId !== undefined
     })
 }

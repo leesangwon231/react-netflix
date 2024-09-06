@@ -1,7 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 import "./GenreTogle.css"
-import {useGenreVideos} from "../../../../hooks/getGenreMovies";
-import {useNavigate} from "react-router-dom";
+
 
 const GenreTogle = ({genre,active,setActive,data,setSearchMovies}) => {
     const onClickGenre = (e) => {
