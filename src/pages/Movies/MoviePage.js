@@ -68,19 +68,19 @@ const MoviePage = () => {
         setChecked(false)
     }, [page]);
 
-
+    console.log(data)
     
 
     return (
         <div className={"wrapper"}>
             <MovieModal show = {show} setShow = {setShow}  detailData={detailData}/>
-            {searchMovies?.results.length === 0 ? "" : <div className={"filterArea"}>
+            {searchMovies?.results.length === 0 || data === undefined ? "" : <div className={"filterArea"}>
                 {genres?.map((genre) => (
                     <GenreTogle genre = {genre} active={active} setActive={setActive} data={data} setSearchMovies={setSearchMovies}/>
                 ))}
             </div>
             }
-            {searchMovies?.results.length === 0 ? "" :<div className={"sortArea"}>
+            {searchMovies?.results.length === 0 || data === undefined ? "" :<div className={"sortArea"}>
                 <ToggleButton
                     id="toggle-check"
                     type="checkbox"
@@ -94,13 +94,13 @@ const MoviePage = () => {
                 </ToggleButton>
             </div>}
             <div className={"cardArea"}>
-                {searchMovies?.results.length === 0
+                {searchMovies?.results.length === 0 || data === undefined
                     ? <div className={"notFound"}><ReLatedMovies/></div>
                     : searchMovies?.results.map((movie) => (
                     <MoviePageCard key={movie.id} movie={movie} setShow={setShow} setDetailData={setDetailData} genreData={genres}/>
                 ))}
             </div>
-            {searchMovies?.results.length === 0 ? "" : <PageNation data={data} setPage ={setPage} page={page} keword={keyword}/>}
+            {searchMovies?.results.length === 0 || data === undefined ? "" : <PageNation data={data} setPage ={setPage} page={page} keword={keyword}/>}
         </div>
 
     )
