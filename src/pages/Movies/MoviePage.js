@@ -99,7 +99,10 @@ const MoviePage = () => {
                     <MoviePageCard key={movie.id} movie={movie} setShow={setShow} setDetailData={setDetailData} genreData={genres}/>
                 ))}
             </div>
-            {searchMovies?.results.length === 0 || data === undefined ? "" : <PageNation data={data} setPage ={setPage} page={page} keword={keyword}/>}
+            <div className={"pageArea"}>
+                {searchMovies?.results.length === 0 || data === undefined ? "" : <PageNation data={data} setPage ={setPage} page={page} keword={keyword}/>}
+            </div>
+
         </div>
 
     )
