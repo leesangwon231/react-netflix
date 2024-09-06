@@ -93,11 +93,13 @@ const MoviePage = () => {
 
             }
 
+            if(searchMovies.length !== 0){
+                setSearchMovies(prevState => ({
+                    ...prevState,
+                    results: originData
+                }));
+            }
 
-            setSearchMovies(prevState => ({
-                ...prevState,
-                results: originData
-            }));
 
         }, [checked,active]);
 
