@@ -32,20 +32,21 @@
 
 
 .imageArea{
-    min-width: 600px;
-    width: auto;
     height: 800px;
-    minHeight: 700px ;
+    max-width: 600px;
+    min-width: 400px;
+    width: 600px;
     content: " ";
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
 .imageArea img{
-    padding-right: 200px;
-    padding-left: 200px;
     height: 600px;
+    max-width: 900px;
+    min-width: 200px;
 }
 
 
@@ -125,19 +126,23 @@
     .imageArea{
         minHeight: 100px ;
         height: 260px;
+        width: auto;
+        content: " ";
         display: flex;
         justify-content: center;
         align-items: center;
+        max-width: 500px;
+        min-width: 150px;
     }
 
     .imageArea img{
-        padding-right: 200px;
-        padding-left: 200px;
         height: 200px;
+        width: auto;
     }
 
 
     .detailArea{
+        width: auto;
         border-left: black solid 1px;;
         padding-left: 50px;
         padding-right: 50px;

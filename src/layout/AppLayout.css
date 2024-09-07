@@ -117,8 +117,8 @@
         margin-bottom: 20px;
     }
 
-    .searchArea input{
-        width: 200px;
+    .searchArea > form > input{
+        width: 150px;
         height: 30px;
         outline: none;
         font-family: HakgyoansimNadeuriTTF-B, serif;

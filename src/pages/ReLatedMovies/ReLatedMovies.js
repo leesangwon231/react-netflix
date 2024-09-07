@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {useReLatedMovies} from "../../hooks/getReLatedMovies";
+import {useReLatedMovies} from "../../hooks/getReLatedRandomMovies";
 import {useMoviesGenres} from "../../hooks/getGenres";
 import MoviePageCard from "../Movies/component/moviePageCard/MoviePageCard";
 import MovieModal from "../../common/MovieModal/MovieModal";

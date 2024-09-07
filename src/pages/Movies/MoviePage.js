@@ -103,7 +103,6 @@ const MoviePage = () => {
 
         }, [checked,active]);
 
-    console.log(searchMovies)
 
     return (
         <div className={"wrapper"}>

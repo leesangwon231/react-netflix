@@ -9,6 +9,7 @@ import PreviewModal from "../PreviewModal/PreviewModal";
 import {useVideos} from "../../hooks/getVideos";
 import MovieCollapse from "../MovieCollaspe/MovieCollapse";
 import {useReviewhMovies} from "../../hooks/getReviewMovies";
+import ReLatedMovieSlider from "./ReLatedMovieSlider/ReLatedMovieSlider";
 const MovieModal = ({ show, setShow, detailData }) => {
 
     const [previewShow , setPreviewShow] = useState(false);
@@ -86,6 +87,9 @@ const MovieModal = ({ show, setShow, detailData }) => {
                             <div><PreviewModal previewShow={previewShow} setPreviewShow={setPreviewShow} videoKey = {videoKey}/></div>
                             {videoKey === " " ? " " :
                                 <div className={"teaser_btn"} onClick={() => setPreviewShow(true)}>예고편 보기</div>}
+                        </div>
+                        <div className={"relatedArea"}>
+                            <ReLatedMovieSlider id={detailData?.genre_ids}/>
                         </div>
                     </div>
 
