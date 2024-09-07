@@ -33,6 +33,7 @@ const MovieCollapse = ({title,content}) => {
           {content?.map((data,index)=> (
               <div className={toggle ? "collapse-contentArea" : "invisible"}>
                   <div className={textLineToggle[index] ? "collapse-all-content":"collapse-content"} onClick={() => {onClickTextLine(index)}}>{data}</div>
+                  <div className={"viewOrHide"}>{textLineToggle[index]? "hide!!" : "view more..."}</div>
               </div>
             ))}
         </div>

@@ -25,12 +25,15 @@
     font-family : HakgyoansimNadeuriTTF-B, serif;
     color: white;
     display: flex;
+
 }
 
 
 
 
 .imageArea{
+    min-width: 600px;
+    width: auto;
     height: 800px;
     minHeight: 700px ;
     content: " ";
@@ -50,6 +53,8 @@
     border-left: white solid 1px;
     padding-left: 50px;
     padding-right: 50px;
+    min-width: 200px;
+    width: auto;
 }
 
 

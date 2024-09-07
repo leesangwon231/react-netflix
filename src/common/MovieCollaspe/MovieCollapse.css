@@ -10,7 +10,8 @@
     margin-top: 40px;
     position: relative;
     border-bottom : white 1px solid;
-    width: 776px;
+    width: auto;
+    min-width: 200px;
     z-index: 1;
 }
 
@@ -42,7 +43,7 @@
 
 .collapse-contentArea{
     height: auto;
-    width: 776px;
+    width: auto;
     border-radius: 10px;
     border : white 1px solid;
     transform: translateY(5px);
@@ -52,7 +53,7 @@
 
 .collapse-contentArea > .collapse-content{
     padding: 7px;
-    width: 776px;
+    width: auto;
     max-height: 60px;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -70,7 +71,7 @@
 
 .collapse-all-content{
     padding: 7px;
-    width: 776px;
+    width: auto;
     max-height: 3000px;
     overflow: hidden;
     transition: all 2s ease;
@@ -88,7 +89,11 @@
 
 
 
-
+.viewOrHide{
+    margin-left: 10px;
+    padding-bottom: 5px;
+    color: red;
+}
 
 
 
