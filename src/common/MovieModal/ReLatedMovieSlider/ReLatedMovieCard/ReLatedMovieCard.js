@@ -4,7 +4,7 @@ import {Badge} from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {faStar,faUser,faFire} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {useMoviesGenres} from "../../../../../../hooks/getGenres";
+import {useMoviesGenres} from "../../../../hooks/getGenres";
 
 
 const ReLatedMovieCard = ({movie,setShow,setDetailData}) => {

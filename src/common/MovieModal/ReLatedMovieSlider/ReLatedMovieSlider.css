@@ -1,0 +1,42 @@
+.sliderArea {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.sliderArea > h1 {
+    margin-left: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.slick-track {
+    display: flex;
+}
+
+.slick-slide {
+    display: flex;
+
+}
+
+.slick-slide > div{
+    margin: 10px;
+}
+
+.slick-list {
+    overflow: hidden;
+}
+
+
+
+@media (max-width: 576px) {
+    .sliderArea{
+        width: 100%;
+    }
+    .slick-slide {
+        display: flex;
+        max-width: 160px;
+    }
+    .slick-slide > div{
+        margin: 5px;
+    }
+}
