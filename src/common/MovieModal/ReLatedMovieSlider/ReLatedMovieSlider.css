@@ -34,7 +34,6 @@
     }
     .slick-slide {
         display: flex;
-        max-width: 160px;
     }
     .slick-slide > div{
         margin: 5px;
