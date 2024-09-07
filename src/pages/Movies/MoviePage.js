@@ -10,9 +10,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import PageNation from "../../common/PageNation/PageNation";
 import {ToggleButton} from "react-bootstrap";
 import ReLatedMovies from "../ReLatedMovies/ReLatedMovies";
+
 const MoviePage = () => {
 
-    const[searchMovies,setSearchMovies]=useState({ results: [] });
+    const[modMovies,setModMovies]=useState([]);
 
     //장르 검색 키워드 검색
     const [keyword] = useSearchParams();
@@ -35,25 +36,11 @@ const MoviePage = () => {
     const {data:genres} = useMoviesGenres();
 
 
-    const sortMoviesByPopularity = (movies) => {
-        setChecked(!checked)
-        if(checked){
-            setSearchMovies(data);
-        }else{
-            const sortedMovies = [...movies].sort((a, b) => b.vote_count - a.vote_count);
-            setSearchMovies(prev => ({
-                ...prev,
-                results: sortedMovies
-            }));
-        }
-    };
-
-
-
-
     //데이터 세팅
     useEffect(() => {
-        setSearchMovies(data);
+        if(data?.results){
+            setModMovies(data.results);
+        }
     }, [data]);
 
     //검색할때 초기화
@@ -61,7 +48,6 @@ const MoviePage = () => {
         setPage(1)
         setActive("")
     }, [keyword]);
-
 
     //페이지 변화시 필터 초기화
     useEffect(() => {
@@ -72,34 +58,22 @@ const MoviePage = () => {
     //필터 유지시 장르 변경시
     useEffect(() => {
 
-            let originData = searchMovies?.results;
 
-            if(active !== ""){
-                let filteredMovies = originData.reduce(function(acc,cur){
-                    if (cur.genre_ids.includes(active.id)) {
-                        acc.push(cur);
-                    }
-                    return acc;
-                },[])
+        if (data?.results) {
+            let filteredData = [...data.results];
 
-                originData = filteredMovies
-
+            if (active !== "") {
+                filteredData = filteredData.filter(movie => movie.genre_ids.includes(active.id));
             }
 
-            if(checked){
-                originData = originData?.sort((a, b) => b.vote_count - a.vote_count);
-            }else{
-                originData = originData?.sort((a, b) => b.popularity - a.popularity);
-
+            if (checked) {
+                filteredData = filteredData.sort((a, b) => b.vote_count - a.vote_count);
             }
 
-            if(searchMovies.length !== 0){
-                setSearchMovies(prevState => ({
-                    ...prevState,
-                    results: originData
-                }));
-            }
-
+            setModMovies(filteredData);
+        } else {
+            setModMovies([]);
+        }
 
         }, [checked,active]);
 
@@ -109,10 +83,10 @@ const MoviePage = () => {
             <MovieModal show = {show} setShow = {setShow}  detailData={detailData}/>
            <div className={"filterArea"}>
                 {genres?.map((genre) => (
-                    <GenreTogle genre = {genre} active={active} setActive={setActive} data={data} setSearchMovies={setSearchMovies}/>
+                    <GenreTogle genre = {genre} active={active} setActive={setActive} data={data} setModMovies={setModMovies}/>
                 ))}
             </div>
-            {searchMovies?.results.length === 0 || data === undefined ? "" :<div className={"sortArea"}>
+            {modMovies?.length === 0 || data === undefined ? "" :<div className={"sortArea"}>
                 <ToggleButton
                     id="toggle-check"
                     type="checkbox"
@@ -120,20 +94,20 @@ const MoviePage = () => {
                     variant="outline-danger"
                     checked={checked}
                     value="1"
-                    onChange={(e) => sortMoviesByPopularity(searchMovies?.results)}
+                    onChange={() => setChecked(!checked)}
                 >
                     시청자순
                 </ToggleButton>
             </div>}
             <div className={"cardArea"}>
-                {searchMovies?.results.length === 0 || data === undefined
+                {modMovies?.length === 0 || data === undefined
                     ? <div className={"notFound"}><ReLatedMovies/></div>
-                    : searchMovies?.results.map((movie) => (
+                    : modMovies?.map((movie) => (
                         <MoviePageCard key={movie.id} movie={movie} setShow={setShow} setDetailData={setDetailData} genreData={genres}/>
                     ))}
             </div>
             <div className={"pageArea"}>
-                {searchMovies?.results.length === 0 || data === undefined ? "" : <PageNation data={data} setPage ={setPage} page={page} keword={keyword}/>}
+                {modMovies?.length === 0 || data === undefined ? "" : <PageNation data={data} setPage ={setPage} page={page} keword={keyword}/>}
             </div>
 
         </div>

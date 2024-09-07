@@ -2,7 +2,7 @@ import React from 'react';
 import "./GenreTogle.css"
 
 
-const GenreTogle = ({genre,active,setActive,data,setSearchMovies}) => {
+const GenreTogle = ({genre,active,setActive}) => {
 
 
 
@@ -10,15 +10,7 @@ const GenreTogle = ({genre,active,setActive,data,setSearchMovies}) => {
         e.preventDefault();
         if(active.name === genre.name){
             setActive("");
-            setSearchMovies(data);
         }else{
-            let filteredMovies = data?.results.reduce(function(acc,cur){
-                if (cur.genre_ids.includes(genre.id)) {
-                    acc.push(cur);
-                }
-                return acc;
-            },[])
-            setSearchMovies({results: filteredMovies });
             setActive(genre);
         }
 
