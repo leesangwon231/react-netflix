@@ -20,6 +20,8 @@ const ReLatedMovieSlider = ({id}) =>{
     const settings = {
         dots: false,
         infinite: true,
+        autoplay: true,
+        autoplaySpeed : 1100,
         speed: 500,
         slidesToShow: 4,
         slidesToScroll: 4,
